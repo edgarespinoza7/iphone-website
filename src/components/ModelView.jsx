@@ -13,9 +13,8 @@ const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, it
     <View
       index={index}
       id={gsapType}
-      className={`w-full h-full ${index === 2} ? 'right-[-100]' : ''`}
+      className={`w-full h-full absolute ${index === 2 ? 'right-[-100%]' : ''}`}
     >
-
       {/* Ambient Light */}
       <ambientLight intensity={0.3} />
 
@@ -34,7 +33,7 @@ const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, it
       />
 
       <group ref={groupRef} name={`${index === 1} ? 'small' : 'large'`} position={[0, 0, 0]}>
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader />}>
           <Iphone
             scale={index === 1 ? [15, 15, 15] : [17, 17, 17]}
             item={item}
@@ -42,10 +41,6 @@ const ModelView = ({ index, groupRef, gsapType, controlRef, setRotationState, it
           />
         </Suspense>
       </group>
-
-
-
-
     </View>
   )
 }
